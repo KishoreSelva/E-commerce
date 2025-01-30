@@ -1,0 +1,144 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../static/category.css" />
+    <title>Technical Documentation Page</title>
+  </head>
+  <body>
+    <nav id="navbar">
+      
+      <div class="dashboard">
+      <i class="fa-solid fa-list"></i>
+      </div>
+      <div>
+      <h2>Dashboard</h2>
+      </div>
+      <div class="dash-items">
+      <a href="/home/ib-57/Desktop/e-commerce/templates/category.html" class="nav-link">Category</a><br />
+      </div>
+      <div class="dash-items">
+      <a href="#Products" class="nav-link">Products</a><br />
+      </div>
+      <div class="dash-items">
+      <a href="#Orders" class="nav-link">Orders</a><br />
+      </div>
+      <div class="dash-items">
+      <a href="#Payment_history" class="nav-link">Payment history</a><br />
+      </div>
+    </nav>
+    <main id="main-doc">
+      <nav class="heading">
+        <header class="head1">E-commerce</header>
+        <div class="search-icon">
+            <i class="fa-solid fa-magnifying-glass fa-xl" style="color: #74C0FC;"></i>        
+        </div>
+        <input class="input1" type="text" class="search-text" placeholder="Search"/>
+        <div class="icon-profile">
+        <i class="fa-solid fa-user"></i>
+        </div>
+        <select name="profile" id="profile">
+            <option value="profile">Your profile</option>
+            <option value="Edit_Profile">Edit Profile</option>
+          </select>
+      </nav>
+      <section class="main-section" id="category">
+      <div class="category_products">
+        {% for category in categories %}
+          {% if loop.index <= 10 %}
+          <div class="card">
+              <img src="img.jpg" alt="Avatar" style="width:100%">
+              <div class="container">
+                <h4><b>{{category.name}}</b></h4>
+                <p>{{category.description}} </p>
+                <button>View</button>
+              </div>
+          </div>
+          <div class="card" id="card2">
+              <img src="img.jpg" alt="Avatar" style="width:100%">
+              <div class="container">
+                <h4><b>{{category.name}}</b></h4>
+                <p>{{category.description}} </p>
+                <button>View</button>
+              </div>
+          </div>
+
+          <div class="card" id="card3">
+              <img src="img.jpg" alt="Avatar" style="width:100%">
+              <div class="container">
+                <h4><b>{{category.name}}</b></h4>
+                <p>{{category.description}} </p>
+                <button>View</button>
+              </div>
+          </div>
+
+          <div class="card" id ="card4">
+              <img src="img.jpg" alt="Avatar" style="width:100%">
+              <div class="container">
+                <h4><b>{{category.name}}</b></h4>
+                <p>{{category.description}} </p>
+                <button>View</button>
+              </div>
+          </div>
+
+          <div class="card" id="card5">
+              <img src="img.jpg" alt="Avatar" style="width:100%">
+              <div class="container">
+                <h4><b>{{category.name}}</b></h4>
+                <p>{{category.description}} </p>
+                <button>View</button>
+              </div>
+          </div>
+
+          <div class="card" id="card6">
+              <img src="img.jpg" alt="Avatar" style="width:100%">
+              <div class="container">
+                <h4><b>{{category.name}}</b></h4>
+                <p>{{category.description}} </p>
+                <button>View</button>
+              </div>
+          </div>
+
+          <div class="card" id="card7">
+              <img src="img.jpg" alt="Avatar" style="width:100%">
+              <div class="container">
+                <h4><b>{{category.name}}</b></h4>
+                <p>{{category.description}} </p>
+                <button>View</button>
+              </div>
+          </div>
+
+          <div class="card" id="card8">
+              <img src="img.jpg" alt="Avatar" style="width:100%">
+              <div class="container">
+                <h4><b>{{category.name}}</b></h4>
+                <p>{{category.description}} </p>
+                <button>View</button>
+              </div>
+          </div>
+
+          <div class="card" id="card9">
+              <img src="img.jpg" alt="Avatar" style="width:100%">
+              <div class="container">
+                <h4><b>{{category.name}}</b></h4>
+                <p>{{category.description}} </p>
+                <button>View</button>
+              </div>
+          </div>
+
+          <div class="card" id="card10">
+              <img src="img.jpg" alt="Avatar" style="width:100%">
+              <div class="container">
+                <h4><b>{{category.name}}</b></h4>
+                <p>{{category.description}} </p>
+                <button>View</button>
+              </div>
+          </div>
+          {% endif %}
+        {% endfor %}
+        </div>
+      </section>
+    </main>
+  </body>
+</html> -->

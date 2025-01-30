@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="content=device-width initial-scale=1.0">
+      <link rel="stylesheet" href="../static/styles.css"/>
+      <title>Registration</title> 
+  </head>
+  <body>
+    <div class="register-container">
+      <header class="section-head">
+        <h1 class="header1" id="title">Register here</h1>
+        <p class="para1" id="description">Please enter the email,username and password to create your new account</p>
+      </header>
+      <form id="register-survey-form" action="/register" method="post">
+
+        <div class="form-entry">
+          <label id="email-label" for="email">Email </label>
+          <input id="email" class="name-text" type="email" name="email" placeholder="Enter your email" required/>
+        </div>
+
+        <div class="form-entry">
+          <label id="username-label" for="name">Username</label>
+          <input id="name" class="name-text" type="text" name="name" placeholder="Enter your username" required />
+        </div>
+
+        <div class="form-entry">
+            <label id="number-label" for="number">Password</label>
+            <input id="number" class="name-text" type="password" name="password" placeholder="Enter your password" min="1" max="99" required/>
+          </div>
+
+        <div class="form-entry">
+          <button id="submit" class="button-submit" type="submit">Register</button>
+          <p class="sign-in">Already have an account just <a href="/login">sign in</a></p>
+        </div>
+      </form>
+    </div>
+    </script>
+  </body>
+</html>

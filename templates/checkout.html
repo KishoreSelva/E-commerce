@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="/static/checkout.css" />
+{% endblock %}
+
+{% block content %}
+        <h1 id="checkout-head">Checkout</h1>
+        <section class="product-summary">
+            <h2>Product Summary</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in cart_items %}
+                    <tr>
+                        <td>{{ item.product_cart.name }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>&#8377; {{ item.product_cart.price }}</td>
+                        <td>&#8377; {{ item.quantity * item.product_cart.price }}</td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td colspan="3"><strong>Total Price</strong></td>
+                        <td><strong>&#8377; {{ total_price }}</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="shipping-details">
+            <h2 id="ship-header">Shipping Details</h2>
+            <form action="/submit_order" method="post">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form_input" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <input type="text" class="form_input" id="address" name="address" placeholder="Enter your address" required>
+                </div>
+                <div class="form-group">
+                    <label for="state">State:</label>
+                    <input type="text" class="form_input" id="state" name="state" placeholder="Enter your state" required>
+                </div>
+                <div class="form-group">
+                    <label for="city">City:</label>
+                    <input type="text" class="form_input" id="city" name="city" placeholder="Enter your city" required>
+                </div>
+                <div class="form-group">
+                    <label for="zipcode">Zip Code:</label>
+                    <input type="text" class="form_input" id="zipcode" name="zipcode" placeholder="Enter your zipcode" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" class="form_input" id="phone" name="phone" placeholder="Enter your phone number" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form_input" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <h2 class="payment-heading">Payment Method</h2>
+                <div class="payment-methods">
+                    <div class="payment-method">
+                        <input type="radio" id="cash" name="payment_method" value="cash" required>
+                        <label for="cash">
+                            <img src="https://img.freepik.com/premium-vector/cash-delivery_569841-123.jpg" alt="Cash on Delivery">
+                            Cash on Delivery
+                        </label>
+                    </div>
+                    <div class="payment-method">
+                        <input type="radio" id="credit_card" name="payment_method" value="credit_card">
+                        <label for="credit_card">
+                            <img src="https://img.freepik.com/free-vector/realistic-credit-card-design_23-2149126088.jpg" alt="Credit Card">
+                            Credit Card
+                        </label>
+                    </div>
+                    <div class="payment-method">
+                        <input type="radio" id="debit_card" name="payment_method" value="debit_card">
+                        <label for="debit_card">
+                            <img src="https://img.freepik.com/free-vector/realistic-credit-card-design_23-2149126088.jpg" alt="Debit Card">
+                            Debit Card
+                        </label>
+                    </div>
+                    <div class="payment-method">
+                        <input type="radio" id="bank_transfer" name="payment_method" value="bank_transfer">
+                        <label for="bank_transfer" class="netbanking-label">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTupvI47EjwV6TmjphCYASxMCgaYUQ-Tx359A&s" alt="Net Banking">
+                            Net Banking
+                        </label>
+                    </div>
+                </div>
+                <button class="place-button" type="submit">Place Order</button>
+            </form>
+        </section>
+{% endblock %}
+

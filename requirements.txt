@@ -1,0 +1,13 @@
+fastapi
+sqlalchemy
+uvicorn
+pydantic
+psycopg2-binary
+bcrypt
+passlib
+python-multipart
+pydantic_settings
+PyJWT
+python-jose
+alembic==1.7.7
+requests

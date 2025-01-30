@@ -1,0 +1,27 @@
+<!-- templates/category.html -->
+{% extends "base.html" %}
+
+{% block title %}Categories{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="/static/category.css" />
+{% endblock %}
+
+{% block content %}
+<section class="main-section" id="category">
+    <div class="category_products">
+        {% for category in categories %}
+          {% if loop.index <= 10 %}
+            <div class="card" onclick="location.href='/get_products?category={{ category.id }}'">
+                <img src="{{ category.covers }}" alt="categories" style="width:100%">
+                <div class="container">
+                    <h4><b>{{ category.name }}</b></h4>
+                    <p>{{ category.description }}</p>
+                    <button onclick="window.location.href='/get_products?category={{ category.id }}'">View</button>
+                </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

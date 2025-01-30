@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="/static/order.css" />
+{% endblock %}
+
+{% block content %}
+<div class="order_division card">
+            <h1>Order Confirmation</h1>
+            <p class="message">{{ order_details.message }}</p>
+            <section class="order-summary">
+                <h2>Order Summary</h2>
+                <p><strong>Customer details:</strong> {{ checkout_details.name }},</br>
+                {{ checkout_details.address }},</br> {{ checkout_details.state }},</br> {{ checkout_details.city }} - {{ checkout_details.zipcode }},</br> {{ checkout_details.phonenumber }}
+                </p>
+                <p><strong>Order id:</strong> #{{ order_details.order_id }}</p>
+                <p><strong>Order Status:</strong> {{ order_details.order_status }}</p>
+                <p><strong>Total Quantity:</strong> {{ order_details.total_quantity }}</p>
+                <p><strong>Total Price:</strong> &#8377; {{ order_details.total_price }}</p>
+                <p><strong>Payment Method:</strong> {{ order_details.payment_method }}</p>
+                <p><strong>Payment Status:</strong> {{ payment_details.payment_status }}</p>
+            </section>
+</div>
+{% endblock %}

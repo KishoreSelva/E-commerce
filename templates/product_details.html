@@ -1,0 +1,84 @@
+<!-- templates/product.html -->
+{% extends "base.html" %}
+
+{% block title %}Products{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="/static/product_detail.css" />
+{% endblock %}
+
+{% block content %}
+    <section class="main-section" id="product-detail">
+            <div class="product-image">
+                
+                <img src="{{ products.cover }}" alt="{{ products.name }}">
+            </div>
+            <div class="product-info">
+                <h1>{{ products.name }}</h1>
+                <p>{{ products.description }}</p>
+                <p><strong>Price:</strong> &#8377; {{ products.price }}</p>
+                <div class="star-rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                    <span>(12.3k)</span>
+                </div>
+                <div class="action-buttons">
+                    <form action="/add_to_cart" method="post">
+                        <input type="hidden" name="product_id" value="{{ products.id }}">
+                        <input type="hidden" name="quantity" value="1" min="0" max="10">
+                        <button type="submit">Add to cart</button>
+                    </form>
+                    <form action="/add_to_cart" method="post">
+                        <input type="hidden" name="product_id" value="{{ products.id }}">
+                        <input type="hidden" name="quantity" value="1" min="0" max="10">
+                        <button type="submit">Buy now</button>
+                    </form>
+                </div>
+            </div>
+    </section>
+    <section class="reviews-section">
+            <h2>Customer Reviews</h2>
+            <div class="reviews">
+                <div class="review">
+                    <p><strong>guest_user</strong></p>
+                    <p>Superb product. I want to really appreciate for quality build</p>
+                    <div class="star-rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <p>Reviewed in the United States on June 1, 2024
+                    </p>
+                    <p><strong>kishore</strong></p>
+                    <p>Superb product. I really love the product sincerely thanks for the redmi to build this monster </p>
+                    <div class="star-rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <p>Reviewed in the India on June 30, 2024
+                    </p>
+                    <p><strong>Eren_yaegar</strong></p>
+                    <p>I would give the rating of 3 star and Im not satisfied with this product</p>
+                    <div class="star-rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <p>Reviewed in the United States on June 1, 2024
+                    </p>
+                </div>
+            </div>
+    </section>
+{% endblock %}
+

@@ -1,0 +1,72 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/static/base.css" />
+    {% block head %}
+    
+    {% endblock %}
+</head>
+<body>
+    <nav id="navbar">
+        <div class="dashboard">
+            <i class="fa-solid fa-list"></i>
+        </div>
+        <div>
+            <h2>Dashboard</h2>
+        </div>
+        <div class="dash-items">
+            <a href="/get_categories" class="nav-link">Category</a><br />
+        </div>
+        <div class="dash-items">
+            <a href="/get_products" class="nav-link">Products</a><br />
+        </div>
+        <div class="dash-items">
+            <a href="/cart" class="nav-link">Cart</a><br />
+        </div>
+        <div class="dash-items">
+            <a href="/your_order" class="nav-link">Orders</a><br />
+        </div>
+        
+    </nav>
+    <main id="main-doc">
+        <nav class="heading">
+            <header class="head1">E-commerce</header>
+            
+            <input class="input1" type="text" class="search-text" placeholder="Search"/>
+            
+            <div name="profile" id="profile">
+                <h1>Welcome <span class="user-name"></span></h1>
+                <form id="logout-form" action="/login" method="get">
+                    <button class="logout-button" type="submit">Logout</button>
+                </form>
+            </div>
+        </nav>
+        {% block content %}
+        
+        
+        
+        {% endblock %}
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const token = localStorage.getItem('token');
+            if (token) {
+                const decodedToken = jwt_decode(token);
+                document.querySelector('.user-name').textContent = decodedToken.sub;
+            }
+            const user_info = localStorage.getItem('user_info');
+            console.log("User ID: " + user_info); // Use user_id as needed
+            const user = JSON.parse(user_info)
+            document.querySelector('.user-name').textContent = user.user_name
+
+            document.getElementById('logout-form').addEventListener('submit', function() {
+                localStorage.clear();
+            });
+        });
+    </script>
+</body>
+</html>

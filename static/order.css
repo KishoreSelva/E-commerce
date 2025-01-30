@@ -1,0 +1,60 @@
+/* Order page styles */
+.order_division {
+    text-align: center;
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    top: 200px;
+    left: 700px;
+}
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #ecf0f1;
+    box-shadow: 0 8px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+.order_division h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.message {
+    font-size: 1.2em;
+    color: #27ae60;
+    margin-bottom: 30px;
+}
+
+.order-summary {
+    text-align: center;
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    height: 450px;
+}
+
+.order-summary h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.order-summary p {
+    font-size: 1.1em;
+    margin: 10px 0;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.order-summary strong {
+    color: #333;
+}
+

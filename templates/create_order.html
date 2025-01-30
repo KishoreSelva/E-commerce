@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/static/cart.css" />
+    <title>Cart</title>
+</head>
+<body>
+    <nav id="navbar">
+            <div class="dashboard">
+                <i class="fa-solid fa-list"></i>
+            </div>
+            <div>
+                <h2>Dashboard</h2>
+            </div>
+            <div class="dash-items">
+                <a href="/get_categories" class="nav-link">Category</a><br />
+            </div>
+            <div class="dash-items">
+                <a href="/get_products" class="nav-link">Products</a><br />
+            </div>
+            <div class="dash-items">
+                <a href="/cart" class="nav-link">Cart</a><br />
+            </div>
+            <div class="dash-items">
+                <a href="/your_order" class="nav-link">Orders</a><br />
+            </div>
+           
+    </nav>
+    <main id="main-doc">
+        <h1>Your Orders</h1>
+        <a href="/get_categories" class="back-button">Back to Products</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Total Price</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart_items %}
+                <tr>
+                    <td>
+                        <img src="{{ item.product_cart.cover }}" alt="{{ item.product_cart.name }}" style="width: 50px; height: 50px;">
+                        {{ item.product_cart.name }}<br>
+                        {{ item.product_cart.description }}
+                    </td>
+                    
+                    <td>{{ item.quantity }}</td>
+                    <td>&#8377; {{ item.quantity * item.product_cart.price }}</td>
+                    <td>{{ order_status }}</td>
+                </tr>
+                {% endfor %}
+                
+            </tbody>
+        </table>
+        
+    </main>
+</body>
+</html>
