@@ -1,17 +1,17 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker,scoped_session
+from config import settings
 
+username = settings.DB_USERNAME
+password = settings.DB_PASSWORD
+ip_address = settings.DB_HOST
+port = settings.DB_PORT
+database = settings.DB_NAME
 
-username = "postgres"
-password = 123
-ip_address = "localhost"
-port = 5432
-database = "postgres"
+db_string = f"postgresql://{username}:{password}@{ip_address}:{port}/{database}"
 
-string = f"postgresql://{username}:{password}@{ip_address}:{port}/{database}"
-
-engine = create_engine(string)
+engine = create_engine(db_string, pool_pre_ping=True)
 
 Base = declarative_base() 
 

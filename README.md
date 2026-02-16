@@ -45,4 +45,17 @@ This is a simple e-commerce web application built using **FastAPI** as the backe
 🤝 Contributing
   Feel free to fork this project, submit issues, and contribute!
 
+## 🐳 Docker Setup
+
+### Prerequisites
+- Docker Desktop or Docker Engine with Compose plugin
+
+### Run the application
+```bash
+# Clone the repo
+git clone <your-repo>
+cd e-commerce
+
+# Start the app
+docker compose up --build
    

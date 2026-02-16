@@ -4,7 +4,7 @@ from database.database import getdb
 from database.models import Customer
 from datetime import timedelta
 from hashing import verify_password
-from config import *
+from constants import constant
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from authentication.login_authentication import create_access_token
@@ -48,7 +48,7 @@ def login(
                 status_code=status.HTTP_404_NOT_FOUND,
                 detail="Incorrect password"
             )
-        access_token_expires = timedelta(minutes=settings.access_token_expire_minutes)
+        access_token_expires = timedelta(minutes=constant.ACCESS_TOKEN_EXPIRE_MINUTES)
         access_token = create_access_token(
             data={"sub": user.username,"user_id":user.id}, expires_delta=access_token_expires
         )
